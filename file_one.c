@@ -1,9 +1,15 @@
 #include <stdio.h>
 
 int main() {
-    int a, b;
-    printf("Enter two numbers: ");
-    scanf("%d %d", &a, &b);
-    printf("Sum: %d\n", a + b);
+    FILE * ftpr;
+    ftpr = fopen("text.txt","r");
+
+    char content[100];
+    if(ftpr != NULL){
+        while(fgets(content, 100, ftpr) != NULL){
+            printf("Content: %s", content);
+        }
+    }
+    fclose(ftpr);
     return 0;
 }
